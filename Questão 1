@@ -1,0 +1,64 @@
+public class Aluno{
+    private String nome;
+    private String matricula;
+    private double[] notas;
+    private int contadorNotas;
+    public Aluno(String nome, String matricula) {
+        this.nome = nome;
+        this.matricula = matricula;
+        this.notas = new double[4];
+        this.contadorNotas = 0;
+    }
+    public void cadastrarNota(double nota) {
+        if (contadorNotas < 4) {
+            this.notas[contadorNotas] = nota;
+            contadorNotas++;
+        } else {
+            System.out.println("Só 4 notas");
+        }
+    }
+    public double calcularMedia() {
+        double soma = 0;
+        for (int i=0; i<contadorNotas;i++){
+            soma+=notas[i];
+        }
+        return contadorNotas == 0 ? 0 : soma / contadorNotas;
+    }
+    public boolean estaAprovado(){
+        return calcularMedia() >= 7.0;
+    }
+    public String getNome(){
+        return nome;
+    }
+    public String getMatricula(){
+        return matricula;
+    }
+} 
+------------------------------------------------------------------------------------------------------------------------------------
+import java.util.ArrayList;
+
+public class Turma{
+    private ArrayList<Aluno> alunos;
+    public Turma(){
+        this.alunos = new ArrayList<>();
+    }
+    public void adicionarAluno(Aluno aluno){
+        alunos.add(aluno);
+    }
+    public void listarAprovados(){
+        System.out.println("Alunos Aprovados:");
+        for (Aluno aluno : alunos) {
+            if (aluno.estaAprovado()){
+                System.out.printf("- %s (Média: %.2f)%n", aluno.getNome(), aluno.calcularMedia());
+            }
+        }
+    }
+    public void listarReprovados(){
+        System.out.println("Alunos Reprovados:");
+        for (Aluno aluno : alunos){
+            if (!aluno.estaAprovado()){
+                System.out.printf("- %s (Média: %.2f)%n", aluno.getNome(), aluno.calcularMedia());
+            }
+        }
+    }
+}
