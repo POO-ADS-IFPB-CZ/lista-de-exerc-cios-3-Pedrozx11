@@ -1,0 +1,5 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/T2vUNN1h)
+
+4 a) Primitivos: armazena diretamente os valores e cada elemento ocupa um espaço fixo 
+4 a) Objetos: armazena as referências e inicialmente apontam para NULL caso não apontem para um objeto real 
+4 b) Verificar se o elemento não é NULL e inicializar os objetos de maneira explicita 
